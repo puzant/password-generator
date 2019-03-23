@@ -4,18 +4,20 @@
   "description": "",
   "main": "no",
   "scripts": {
-    "test": "npm run start"
+    "test": "mocha"
   },
   "author": "puzant",
   "license": "ISC",
   "dependencies": {
     "browser-sync": "^2.26.3",
+    "chai": "^4.2.0",
     "gulp": "^4.0.0",
     "gulp-less": "^4.0.1"
   },
   "devDependencies": {
     "gulp-clean-css": "^4.0.0",
     "gulp-concat": "^2.6.1",
-    "gulp-rename": "^1.4.0"
+    "gulp-rename": "^1.4.0",
+    "mocha": "^6.0.2"
   }
 }

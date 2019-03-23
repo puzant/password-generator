@@ -1,4 +1,3 @@
-
   var Letters = 'abcdefghijklmnopwrstuvwxyz'.split('');
   var Capitals = 'ABCDEFGHIJKLMNOPWRSTUVWXYZ'.split('');
   var Numbers = '0123456789'.split('');
@@ -254,4 +253,3 @@
   document.addEventListener('DOMContentLoaded', function() {
     applyLocalStorage();
   })
-
