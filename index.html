@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/bmikpgodpkclnkgmnpphehdgcimmided">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/css/main.min.css">
+</head>
+<body>
+<main>
+  <section id="password-generator">
+    <!-- <p class="header">Password Generator JS</p> -->
+    <div class="container">
+      <!-- HERE -->
+      <div class="wrapper">
+        <section id="password-wrapper">
+          <div class="password">
+            <div class="password-section">
+              <span id="password-output"></span>
+            </div>
+            <div class="refresh" onclick="generatePassword({strength:true})">
+              <img src="assets/img/reload.png">
+            </div>
+          </div>
+          <div id="PasswordStrength" class="strength">
+            <img id="validPass" src="assets/img/shield-success.png" alt="">
+            <img id="invalidPass" src="assets/img/shield-error.png" alt="">
+            <p id="password-text"></p>
+          </div>
+        </section>
+
+        <div class="controls">
+          <div class="buttons">
+            <button onclick="toggleButton('btnNumbers')" id="btnNumbers">Numbers<span
+                class="shortcuts">(N)</span></button>
+            <button onclick="toggleButton('btnCapitals')" id="btnCapitals">Capitals <span
+                class="shortcuts">(U)</span></button>
+            <button onclick="toggleButton('btnSymbols')" id="btnSymbols"> Symbols <span
+                class="shortcuts">(S)</span></button>
+            <button onclick="toggleButton('btnPronoun')" id="btnPronoun"> Pronounceable <span class="shortcuts">(P)</span>
+            </button>
+          </div>
+
+          <div class="range-wrapper">
+            <div class="tracker">
+              length: <span id="display-password-length"></span>
+            </div>
+            <div class="center">
+              <input id="password-length" value="32" type='range' min="4" max="200">
+            </div>
+          </div>
+
+          <button class="copy" onclick="copyToClipboard()">Copy Password<span id="copy-shortcut" class="shortcuts">(C)</span>
+          </button>
+          <div id="snackbar"><i class="fas fa-check-circle"></i> password copied to clipboard</div>
+        </div>
+      </div> <!-- end of wrapper -->
+    </div>
+  </section>
+</main>
+
+<script type="text/javascript" src="assets/zxcvbn.js"></script> 
+<script src="app.js"></script>
+</body>
+</html>
