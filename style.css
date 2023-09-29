@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/**
+  weak password colors
+    body color: #3d0c11
+    password container color: #ED4133
+    password options color: #2E0808
+
+  fair password colors
+    body color: #4c3801
+    password container color: #fcba03
+    password options color: #322501
+
+  strong password colors
+    body color: #3B661D
+    password container color: #76cc39
+    password options color: #18290B
+**/
+
+body {
+  background: #3d0c11;
+  transition: background-color 0.5s;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  width: 92%;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  background: #565856;
+  height: 10px;
+  outline: none;
+  border-radius: 4px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background-color: #63da73;
+  border: 2px solid #3e3c3c;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  margin-top: -9px;
+}
+
+.active {
+  border-color: #7fd470;
+}

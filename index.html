@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body>
+    
+    <div class="flex flex-col items-center mt-12">
+      <div class="text-xl text-center sm:text-3xl text-white">
+        Generator for Strong and Complex Passwords
+      </div>
+
+      <div class="w-full sm:w-[70%] mt-12 p-4">
+        <div id="generated-password-container" class="bg-[#ED4133] rounded-t-md text-white py-[100px] px-[30px] relative ease-in duration-300">
+          <div class="flex items-center justify-between">
+            <span id="generated-password" class="w-[75%] text-ellipsis overflow-hidden text-xl sm:text-4xl"></span>
+            <img src="./public/reload.png" id="reload-btn" class="cursor-pointer w-12 h-12" />
+          </div>
+
+          <div class="absolute bottom-3">
+            <div class="flex gap-1">
+              <span id="intensity-text">Weak Password</span>
+            </div>
+          </div>
+
+        </div>
+
+        <div id="options-container" class="bg-[#2E0808] ease-in duration-300 text-white py-[30px] rounded-b-md flex flex-col items-center">
+          <input
+            id="rangeInput"
+            type="range"
+            min="1"
+            max="100"
+            value="1"
+          />
+
+          <div class="flex flex-wrap justify-center gap-4 mt-8 p-4 sm:p-0">
+            <div id="N" class="cursor-pointer border border-[#313233] w-full sm:w-[300px] rounded-md bg-[#535559] py-[30px] px-[40px] text-white text-center ease-in duration-300">
+              Numbers <span class="font-bold">(N)</span>
+            </div>
+
+            <div id="U" class="cursor-pointer border border-[#313233] w-full sm:w-[300px] rounded-md bg-[#535559] py-[30px] px-[40px] text-white text-center ease-in duration-300">
+              Capital Letters <span class="font-bold">(U)</span>
+            </div>
+
+            <div id="S" class="cursor-pointer border border-[#313233] w-full sm:w-[300px] rounded-md bg-[#535559] py-[30px] px-[40px] text-white text-center ease-in duration-300">
+              Symbols <span class="font-bold">(S)</span>
+            </div>
+
+            <div id="P" class="cursor-pointer border border-[#313233] w-full sm:w-[300px] rounded-md bg-[#535559] py-[30px] px-[40px] text-white text-center ease-in duration-300">
+              Pronounceable <span class="font-bold">(P)</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
