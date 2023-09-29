@@ -1,6 +1,8 @@
+import debounce from "lodash/debounce";
 import { zxcvbnOptions, zxcvbn } from "@zxcvbn-ts/core";
 import * as zxcvbnCommonPackage from "@zxcvbn-ts/language-common";
 import * as zxcvbnEnPackage from "@zxcvbn-ts/language-en";
+
 import "./style.css";
 
 const zxcvbnCustomOptions = {
@@ -116,7 +118,12 @@ document.getElementById("reload-btn").addEventListener("click", () => {
   generatePassword(rangeInput.value);
 });
 
-rangeInput.addEventListener("input", handleRangeChange);
+rangeInput.addEventListener(
+  "input",
+  debounce(() => {
+    handleRangeChange();
+  }, 500)
+);
 
 buttonContainer.addEventListener("click", (e) => {
   if (e.target.classList.contains("cursor-pointer"))
