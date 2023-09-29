@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>Password Generator</title>
   </head>
   <body>
     
@@ -16,7 +16,10 @@
         <div id="generated-password-container" class="bg-[#ED4133] rounded-t-md text-white py-[100px] px-[30px] relative ease-in duration-300">
           <div class="flex items-center justify-between">
             <span id="generated-password" class="w-[75%] text-ellipsis overflow-hidden text-xl sm:text-4xl"></span>
-            <img src="./public/reload.png" id="reload-btn" class="cursor-pointer w-12 h-12" />
+            <div class="flex gap-6 items-center">
+              <img src="./public/reload.png" id="reload-btn" class="cursor-pointer w-8 h-8" />
+              <img src="./public/copy.png" id="copy-btn" class="cursor-pointer w-8 h-8" />
+            </div>
           </div>
 
           <div class="absolute bottom-3">

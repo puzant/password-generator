@@ -1,9 +1,11 @@
 import debounce from "lodash/debounce";
+import Toastify from "toastify-js";
 import { zxcvbnOptions, zxcvbn } from "@zxcvbn-ts/core";
 import * as zxcvbnCommonPackage from "@zxcvbn-ts/language-common";
 import * as zxcvbnEnPackage from "@zxcvbn-ts/language-en";
 
 import "./style.css";
+import "toastify-js/src/toastify.css";
 
 const zxcvbnCustomOptions = {
   translations: zxcvbnEnPackage.translations,
@@ -17,7 +19,11 @@ const zxcvbnCustomOptions = {
 
 zxcvbnOptions.setOptions(zxcvbnCustomOptions);
 
-const buttonContainer = document.getElementById("options-container");
+const nBtn = document.getElementById("N");
+const uBtn = document.getElementById("U");
+const sBtn = document.getElementById("S");
+const pBtn = document.getElementById("P");
+const intensityText = document.getElementById("intensity-text");
 const rangeInput = document.getElementById("rangeInput");
 
 const passwordOptions = {
@@ -57,7 +63,6 @@ export const generatePassword = (length) => {
     password += characters.charAt(randomIndex);
   }
 
-  let score;
   document.getElementById("generated-password").textContent = password;
   return password;
 };
@@ -71,34 +76,24 @@ const getPasswordIntensity = (score) => {
 
   switch (score) {
     case 0:
-      document.body.style.backgroundColor = "#3d0c11";
-      generatedPasswordContainer.style.backgroundColor = "#ED4133";
-      passwordOptionsContainer.style.backgroundColor = "#2E0808";
-      document.getElementById("intensity-text").textContent = "weak password";
-      break;
     case 1:
       document.body.style.backgroundColor = "#3d0c11";
       generatedPasswordContainer.style.backgroundColor = "#ED4133";
       passwordOptionsContainer.style.backgroundColor = "#2E0808";
-      document.getElementById("intensity-text").textContent = "weak password";
+      intensityText.textContent = "weak password";
       break;
     case 2:
-      document.body.style.backgroundColor = "#4c3801";
-      generatedPasswordContainer.style.backgroundColor = "#fcba03";
-      passwordOptionsContainer.style.backgroundColor = "#322501";
-      document.getElementById("intensity-text").textContent = "fair password";
-      break;
     case 3:
       document.body.style.backgroundColor = "#4c3801";
       generatedPasswordContainer.style.backgroundColor = "#fcba03";
       passwordOptionsContainer.style.backgroundColor = "#322501";
-      document.getElementById("intensity-text").textContent = "fair password";
+      intensityText.textContent = "fair password";
       break;
     case 4:
       document.body.style.backgroundColor = "#3B661D";
       generatedPasswordContainer.style.backgroundColor = "#76cc39";
       passwordOptionsContainer.style.backgroundColor = "#18290B";
-      document.getElementById("intensity-text").textContent = "strong password";
+      intensityText.textContent = "strong password";
       break;
   }
 };
@@ -109,6 +104,8 @@ const handleRangeChange = () => {
   getPasswordIntensity(score);
 };
 
+//---------------------------------------------------- Event Listners ------------------------------------------------------------\\
+
 document.addEventListener("DOMContentLoaded", () => {
   handleRangeChange();
   generatePassword(1);
@@ -118,6 +115,28 @@ document.getElementById("reload-btn").addEventListener("click", () => {
   generatePassword(rangeInput.value);
 });
 
+document.getElementById("copy-btn").addEventListener("click", async () => {
+  try {
+    await navigator.clipboard.writeText(
+      document.getElementById("generated-password").textContent
+    );
+    Toastify({
+      text: "Password Copied!",
+      duration: 3000,
+      newWindow: true,
+      gravity: "bottom",
+      position: "center",
+      stopOnFocus: true,
+      style: {
+        background: "#fff",
+        color: "#111",
+      },
+    }).showToast();
+  } catch (err) {
+    console.error("Unable to copy text: ", err);
+  }
+});
+
 rangeInput.addEventListener(
   "input",
   debounce(() => {
@@ -125,30 +144,45 @@ rangeInput.addEventListener(
   }, 500)
 );
 
-buttonContainer.addEventListener("click", (e) => {
+nBtn.addEventListener("click", (e) => {
   if (e.target.classList.contains("cursor-pointer"))
     e.target.classList.toggle("active");
+  toggleKey("N");
+});
+
+uBtn.addEventListener("click", (e) => {
+  if (e.target.classList.contains("cursor-pointer"))
+    e.target.classList.toggle("active");
+  toggleKey("U");
+});
+
+sBtn.addEventListener("click", (e) => {
+  if (e.target.classList.contains("cursor-pointer"))
+    e.target.classList.toggle("active");
+  toggleKey("S");
+});
+
+pBtn.addEventListener("click", (e) => {
+  if (e.target.classList.contains("cursor-pointer"))
+    e.target.classList.toggle("active");
+  toggleKey("P");
 });
 
 document.addEventListener("keydown", (e) => {
   switch (e.key) {
     case "n":
-      const nBtn = document.getElementById("N");
       nBtn.classList.toggle("active");
       toggleKey("N");
       break;
     case "u":
-      const uBtn = document.getElementById("U");
       uBtn.classList.toggle("active");
       toggleKey("U");
       break;
     case "s":
-      const sBtn = document.getElementById("S");
       sBtn.classList.toggle("active");
       toggleKey("S");
       break;
     case "p":
-      const pBtn = document.getElementById("P");
       pBtn.classList.toggle("active");
       toggleKey("P");
       break;
