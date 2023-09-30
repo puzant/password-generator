@@ -4,6 +4,8 @@ import { zxcvbnOptions, zxcvbn } from "@zxcvbn-ts/core";
 import * as zxcvbnCommonPackage from "@zxcvbn-ts/language-common";
 import * as zxcvbnEnPackage from "@zxcvbn-ts/language-en";
 
+import { getRandomInt, generatePronouncablePassword } from "./utils";
+
 import "./style.css";
 import "toastify-js/src/toastify.css";
 
@@ -38,10 +40,6 @@ const toggleKey = (key) => {
   generatePassword(rangeInput.value);
 };
 
-const getRandomInt = (min, max) => {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-};
-
 export const generatePassword = (length) => {
   const { N, U, S, P } = passwordOptions || {};
 
@@ -58,9 +56,13 @@ export const generatePassword = (length) => {
 
   const characterCount = characters.length;
 
-  for (let i = 0; i < length; i++) {
-    const randomIndex = getRandomInt(0, characterCount - 1);
-    password += characters.charAt(randomIndex);
+  if (P) {
+    password = generatePronouncablePassword(length);
+  } else {
+    for (let i = 0; i < length; i++) {
+      const randomIndex = getRandomInt(0, characterCount - 1);
+      password += characters.charAt(randomIndex);
+    }
   }
 
   document.getElementById("generated-password").textContent = password;
@@ -120,6 +122,7 @@ document.getElementById("copy-btn").addEventListener("click", async () => {
     await navigator.clipboard.writeText(
       document.getElementById("generated-password").textContent
     );
+
     Toastify({
       text: "Password Copied!",
       duration: 3000,
