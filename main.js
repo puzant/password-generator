@@ -27,6 +27,7 @@ const sBtn = document.getElementById("S");
 const pBtn = document.getElementById("P");
 const intensityText = document.getElementById("intensity-text");
 const rangeInput = document.getElementById("rangeInput");
+const generatedPassword = document.getElementById("generated-password");
 
 const passwordOptions = {
   N: false,
@@ -65,7 +66,7 @@ export const generatePassword = (length) => {
     }
   }
 
-  document.getElementById("generated-password").textContent = password;
+  generatedPassword.textContent = password;
   return password;
 };
 
@@ -119,9 +120,7 @@ document.getElementById("reload-btn").addEventListener("click", () => {
 
 document.getElementById("copy-btn").addEventListener("click", async () => {
   try {
-    await navigator.clipboard.writeText(
-      document.getElementById("generated-password").textContent
-    );
+    await navigator.clipboard.writeText(generatedPassword.textContent);
 
     Toastify({
       text: "Password Copied!",
