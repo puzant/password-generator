@@ -6,6 +6,7 @@
 ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=flat&logo=vite&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=flat&logo=javascript&logoColor=%23F7DF1E)
 ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=flat&logo=tailwind-css&logoColor=white)
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=flat&logo=html5&logoColor=white)
 
 **Live demo**: [password generator](https://complex-password-generator-app.netlify.app/)
 
@@ -13,7 +14,8 @@
 
 ## Overview
 
-The Password Generator App is a simple and efficient tool built with vanilla JavaScript, Tailwind CSS, and bootstrapped using Vite. It allows users to generate passwords with various customization options, including capital letters, numbers, symbols, and the ability to make passwords pronounceable. The app also employs the Zxcvbn library to evaluate and display password strength, categorizing it as weak, fair, or strong.
+- The Password Generator App is a simple and efficient tool built with vanilla JavaScript, Tailwind CSS, and bootstrapped using Vite. 
+- It allows users to generate passwords with various customization options, including capital letters, numbers, symbols, and the ability to make passwords pronounceable. The app also employs the Zxcvbn library to evaluate and display password strength, categorizing it as weak, fair, or strong.
 
 ## Features
 
@@ -48,3 +50,4 @@ To run the Password Generator App locally, follow these steps:
    # or
    yarn install
    ```
+4. Run the application `npm run dev`
