@@ -10,12 +10,11 @@
 
 **Live demo**: [password generator](https://complex-password-generator-app.netlify.app/)
 
-![app-screenshot](./public/app-screenshot.png)
-
 ## Overview
-
 - The Password Generator App is a simple and efficient tool built with vanilla JavaScript, Tailwind CSS, and bootstrapped using Vite. 
 - It allows users to generate passwords with various customization options, including capital letters, numbers, symbols, and the ability to make passwords pronounceable. The app also employs the Zxcvbn library to evaluate and display password strength, categorizing it as weak, fair, or strong.
+
+![app-screenshot](./public/app-screenshot.png)
 
 ## Features
 
