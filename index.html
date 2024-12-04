@@ -7,52 +7,56 @@
   </head>
   <body>
     
-    <div class="flex flex-col items-center mt-12">
-      <div class="text-xl text-center sm:text-3xl text-white">
-        Generator for Strong and Complex Passwords
-      </div>
+    <div class="flex flex-col my-4 items-start md:items-center">
+      <b class="text-xl text-left sm:text-3xl text-white px-4 py-1">
+        Password Generator
+      </b>
 
-      <div class="w-full sm:w-[70%] mt-12 p-4">
+      <div class="w-full sm:w-[70%] p-4">
         <div id="generated-password-container" class="bg-[#ED4133] rounded-t-md text-white py-[100px] px-[30px] relative ease-in duration-300">
           <div class="flex items-center justify-between">
-            <span id="generated-password" class="w-[75%] text-ellipsis overflow-hidden text-xl sm:text-4xl"></span>
-            <div class="flex gap-6 items-center">
-              <img alt="" src="./public/reload.png" id="reload-btn" class="cursor-pointer w-8 h-8" />
-              <img alt="" src="./public/copy.png" id="copy-btn" class="cursor-pointer w-8 h-8" />
+            <span id="generated-password" class="w-[75%] text-ellipsis overflow-hidden text-2xl sm:text-4xl"></span>
+            <div class="flex gap-4 items-center">
+              <img alt="" src="./public/reload.svg" id="reload-btn" class="cursor-pointer w-6 h-6 sm:w-8 sm:h-8" />
+              <img alt="" src="./public/copy.svg" id="copy-btn" class="cursor-pointer w-6 h-6 sm:w-8 sm:h-8" />
             </div>
           </div>
 
           <div class="absolute bottom-3">
             <div class="flex gap-1">
-              <span id="intensity-text">Weak Password</span>
+              <span id="intensity-text" class="font-bold italic">Weak Password</span>
             </div>
           </div>
-
         </div>
 
-        <div id="options-container" class="bg-[#2E0808] ease-in duration-300 text-white py-[30px] rounded-b-md flex flex-col items-center">
-          <input
-            id="rangeInput"
-            type="range"
-            min="1"
-            max="100"
-            value="1"
-          />
+        <div id="options-container" class="bg-[#2E0808] ease-in duration-300 py-5 rounded-b-md flex flex-col">
+          <div class="text-white text-left px-4 py-1">Password length</div>
+          <div class="w-full flex justify-around items-center gap-4 px-4">
+            <input
+              id="rangeInput"
+              type="range"
+              min="1"
+              max="100"
+              value="1"
+            />
 
-          <div class="flex flex-wrap justify-center gap-4 mt-8 p-4 sm:p-0">
-            <div id="N" class="cursor-pointer border border-[#313233] w-full sm:w-[300px] rounded-md bg-[#535559] py-[30px] px-[40px] text-white text-center ease-in duration-300">
+            <div id="password-length" class=" text-2xl text-white">10</div>
+          </div>
+
+          <div class="flex flex-wrap justify-center gap-4 my-4 px-4 sm:p-0">
+            <div id="N" class="cursor-pointer border border-[#313233] w-full sm:w-[300px] rounded-md bg-[#535559] py-[20px] px-[40px] text-white text-center ease-in duration-300">
               Numbers <span class="font-bold">(N)</span>
             </div>
 
-            <div id="U" class="cursor-pointer border border-[#313233] w-full sm:w-[300px] rounded-md bg-[#535559] py-[30px] px-[40px] text-white text-center ease-in duration-300">
+            <div id="U" class="cursor-pointer border border-[#313233] w-full sm:w-[300px] rounded-md bg-[#535559] py-[20px] px-[40px] text-white text-center ease-in duration-300">
               Capital Letters <span class="font-bold">(U)</span>
             </div>
 
-            <div id="S" class="cursor-pointer border border-[#313233] w-full sm:w-[300px] rounded-md bg-[#535559] py-[30px] px-[40px] text-white text-center ease-in duration-300">
+            <div id="S" class="cursor-pointer border border-[#313233] w-full sm:w-[300px] rounded-md bg-[#535559] py-[20px] px-[40px] text-white text-center ease-in duration-300">
               Symbols <span class="font-bold">(S)</span>
             </div>
 
-            <div id="P" class="cursor-pointer border border-[#313233] w-full sm:w-[300px] rounded-md bg-[#535559] py-[30px] px-[40px] text-white text-center ease-in duration-300">
+            <div id="P" class="cursor-pointer border border-[#313233] w-full sm:w-[300px] rounded-md bg-[#535559] py-[20px] px-[40px] text-white text-center ease-in duration-300">
               Pronounceable <span class="font-bold">(P)</span>
             </div>
           </div>

@@ -43,6 +43,10 @@ input[type="range"]::-webkit-slider-runnable-track {
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   background-color: #63da73;
+  background-image: url('./public/key.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 70%;
   border: 2px solid #3e3c3c;
   border-radius: 50%;
   width: 28px;

@@ -28,6 +28,7 @@ const pBtn = document.getElementById("P");
 const intensityText = document.getElementById("intensity-text");
 const rangeInput = document.getElementById("rangeInput");
 const generatedPassword = document.getElementById("generated-password");
+const passwordLength = document.getElementById("password-length")
 
 const passwordOptions = {
   N: false,
@@ -67,6 +68,8 @@ export const generatePassword = (length) => {
   }
 
   generatedPassword.textContent = password;
+  passwordLength.textContent = password.length;
+  
   return password;
 };
 
