@@ -57,3 +57,16 @@ input[type="range"]::-webkit-slider-thumb {
 .active {
   border-color: #7fd470;
 }
+
+.animate-rotate {
+  animation: rotate180 .5s;
+}
+
+@keyframes rotate180 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(180deg);
+  }
+}

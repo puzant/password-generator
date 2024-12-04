@@ -29,6 +29,7 @@ const intensityText = document.getElementById("intensity-text");
 const rangeInput = document.getElementById("rangeInput");
 const generatedPassword = document.getElementById("generated-password");
 const passwordLength = document.getElementById("password-length")
+const reloadBtn = document.getElementById('reload-btn')
 
 const passwordOptions = {
   N: false,
@@ -117,9 +118,14 @@ document.addEventListener("DOMContentLoaded", () => {
   generatePassword(1);
 });
 
-document.getElementById("reload-btn").addEventListener("click", () => {
+reloadBtn.addEventListener("click", () => {
+  reloadBtn.classList.add('animate-rotate');
   generatePassword(rangeInput.value);
 });
+
+reloadBtn.addEventListener('animationend', () => {
+  reloadBtn.classList.remove('animate-rotate')
+})
 
 document.getElementById("copy-btn").addEventListener("click", async () => {
   try {
