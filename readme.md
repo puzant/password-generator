@@ -15,7 +15,6 @@
 - It allows users to generate passwords with various customization options, including capital letters, numbers, symbols, and the ability to make passwords pronounceable. The app also employs the Zxcvbn library to evaluate and display password strength, categorizing it as weak, fair, or strong.
 
 ![app-screenshot](./public/app-screenshot.png)
-![mobile-screenshot](./public/mobile-screenshot.png)
 
 ## Features
 
